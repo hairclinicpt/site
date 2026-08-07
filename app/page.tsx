@@ -238,7 +238,7 @@ export default function Home() {
             priority
             fetchPriority="high"
             sizes="100vw"
-            quality={85}
+            quality={80}
             className="object-cover object-center"
           />
           {/* Veil */}
@@ -465,7 +465,7 @@ export default function Home() {
                 alt="Fábia Oliveira, tricologista e fundadora da Hair Clinic, com fardamento da marca"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                quality={85}
+                quality={80}
                 className="object-cover"
               />
             </div>
@@ -682,7 +682,7 @@ export default function Home() {
                       alt={m.alt}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      quality={85}
+                      quality={80}
                       className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                     />
                   </div>
