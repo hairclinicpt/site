@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+
+  --color-beige: #f5f0e8;
+  --color-beige-deep: #ede5d8;
+  --color-beige-dark: #d4c9b5;
+  --color-green: #7a8c6e;
+  --color-green-deep: #5c6e50;
+  --color-green-dry: #8e9e82;
+  --color-gold: #c4a96b;
+  --color-gold-light: #d4bc88;
+  --color-cream: #fdfaf5;
+  --color-ink: #2a2520;
+  --color-text: #3d3530;
+  --color-text-soft: #7a706a;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-text);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Prevent horizontal overflow on small screens.
+   `clip` (not `hidden`) so position: sticky keeps working down the tree. */
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-cream);
+}
+
+/* Global focus-visible — clear gold outline on any interactive element */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+/* Eyebrow / micro labels */
+.eyebrow {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--color-gold);
+  flex-shrink: 0;
+}
+
+/* Reveal-on-scroll baseline */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero fade-up (intro) */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+
+/* Hero scroll indicator */
+@keyframes scroll-line {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  35% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  70% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  99% {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--color-gold), transparent);
+  animation: scroll-line 2.4s ease-in-out infinite;
+}
+
+/* ── Accessibility: respect user's motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+  .scroll-line {
+    animation: none !important;
+    opacity: 0.6;
+  }
+}
+
+/* ── Mobile touch targets — minimum 44px for tap-friendly UI ── */
+@media (max-width: 768px) {
+  a,
+  button {
+    min-height: 32px;
+  }
+  a[role="button"],
+  button[type="submit"],
+  .touch-large {
+    min-height: 44px;
+  }
+}
+
+/* FAQ accordion (native details/summary) */
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item .faq-icon {
+  transition: transform 0.3s ease;
+}
+.faq-item[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* Decorative monogram */
+.monogram {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+/* Print styles — show URLs after links */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  nav,
+  .marquee-track,
+  #cursor,
+  #cursor-ring {
+    display: none !important;
+  }
+  a[href^="http"]::after,
+  a[href^="mailto"]::after,
+  a[href^="tel"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+  }
+}
