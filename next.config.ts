@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
         { source: "/privacidade", destination: "/diagnostico/privacidade.html" },
         { source: "/diagnostico", destination: "/diagnostico/lp.html" },
         { source: "/diagnostico/", destination: "/diagnostico/lp.html" },
+        { source: "/diagnostico/cookies", destination: "/diagnostico/cookies.html" },
         { source: "/diagnostico/obrigado", destination: "/diagnostico/obrigado.html" },
       ],
       afterFiles: [],

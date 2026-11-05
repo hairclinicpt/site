@@ -168,7 +168,6 @@ footer a{text-decoration:none;border-bottom:1px solid var(--dourado)}
 .lema{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--verde)}
 
 /* Barra fixa no telemóvel */
-.barra{display:none}
 
 /* Pop-up do formulário */
 .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:18px}
@@ -184,7 +183,6 @@ footer a{text-decoration:none;border-bottom:1px solid var(--dourado)}
 .fechar::after{transform:rotate(-45deg)}
 .caixa iframe{width:100%;border:0;min-height:430px;display:block;background:transparent}
 .caixa .nota{font-size:13px;color:var(--cinza);margin-top:8px;line-height:1.55}
-.caixa .wa{display:inline-block;margin-top:12px;font-size:14px;color:var(--verde);text-decoration:none;border-bottom:1px solid var(--dourado)}
 
 /* Tablet e telemóvel */
 @media (max-width:900px){
@@ -206,9 +204,6 @@ footer a{text-decoration:none;border-bottom:1px solid var(--dourado)}
   .reveal-left,.reveal-right{transform:translateY(26px)}
   .topo .wrap{height:64px}
   .marca{font-size:19px}
-  .barra{display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));background:rgba(253,250,245,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 -1px 0 var(--linha);transform:translateY(110%);transition:transform .4s ease}
-  .barra.ver{transform:none}
-  .barra .btn{min-height:50px}
   .caixa{padding:40px 22px 24px}
   .modal{padding:10px;align-items:flex-end}
   .caixa{max-height:calc(100dvh - 20px)}
@@ -245,7 +240,7 @@ h1 em,h2 em{font-style:normal;color:inherit;font-weight:400}
 .assina,.diag .destaque,.lema{font-style:normal}
 .diag .destaque{font-size:24px}
 .faq-item .mais::before,.faq-item .mais::after{background:var(--escuro)}
-footer a,.caixa .wa{border-bottom:0;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(42,37,32,.35)}
+footer a{border-bottom:0;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(42,37,32,.35)}
 .reveal-left,.reveal-right,.reveal-scale{transform:translateY(18px)}
 .reveal{transform:translateY(18px)}
 
@@ -314,7 +309,6 @@ footer{font-size:17px}
 footer p{color:var(--cinza)}
 .caixa .intro{font-size:17px}
 .caixa .nota{font-size:16px}
-.caixa .wa{font-size:17px}
 .marca small{font-size:13px;font-weight:500;color:var(--cinza)}
 .btn{font-size:18px;font-weight:500;letter-spacing:.02em;background:#4A5A40;animation:none;box-shadow:0 6px 16px -8px rgba(42,37,32,.5)}
 .btn:hover{background:#3C4A33}
@@ -324,13 +318,25 @@ footer p{color:var(--cinza)}
 @media (max-width:600px){.topo .btn-menu{padding:0 14px;font-size:16px;min-height:44px}.marca{font-size:18px}}
 @media (max-width:480px){body{font-size:18px}.heroi .sub,.dor .corpo p,.oque .texto p,.quem p,.final p{font-size:19px}.dor .cartao p,.dor .desejo li{font-size:18px}}
 .etiqueta{color:#3F4D36}
-.lema,.assina,.caixa .wa{color:#3F4D36}
+.lema,.assina{color:#3F4D36}
 footer .marca,footer .marca small{color:#2A2520}
 .frente .n{color:#E4D3A6}
 .oque b,.nos b,b{color:#3F4D36}
 @media (max-width:600px){.topo .marca{letter-spacing:.08em;white-space:nowrap}.topo .marca small{letter-spacing:.06em;white-space:nowrap;font-size:12px}.topo .btn-menu{padding:0 12px;letter-spacing:0}.topo .wrap{gap:10px}}
 .nos b,.contraste .nos b,.contraste b{color:#3F4D36!important}
 footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22px}
+
+/* Acabamento premium (05/11): linhas finas, botões mais leves, imagens com contorno verde */
+.dor .cartao{border-top:0;position:relative;border-radius:4px;box-shadow:0 0 0 1px rgba(74,90,64,.12)}
+.dor .cartao::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;border-radius:4px 4px 0 0;background:linear-gradient(90deg,#4A5A40 0%,#A9BC9B 50%,#4A5A40 100%);background-size:300% 100%;animation:hcdesliza 6s ease-in-out infinite alternate}
+@keyframes hcdesliza{from{background-position:0% 50%}to{background-position:100% 50%}}
+.btn,.topo .btn-menu{border-radius:6px;background:linear-gradient(100deg,#4A5A40,#5C6E50);box-shadow:0 4px 12px -8px rgba(42,37,32,.35);font-weight:500}
+.btn:hover,.topo .btn-menu:hover{background:linear-gradient(100deg,#3F4D36,#4A5A40)}
+.heroi .foto,.oque .fotos,.retrato,.diag .foto{border-radius:6px;outline:1px solid rgba(74,90,64,.45);outline-offset:-1px}
+.heroi .foto img,.oque .fotos img,.retrato img,.diag .foto img{border-radius:6px}
+.retrato{overflow:hidden}
+h1,h2,h3{font-weight:400}
+footer .chamada{font-size:16px;color:#574E48}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -363,7 +369,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22p
 <section class="dor" id="dor">
   <div class="wrap">
     <div class="cab reveal">
-      <div class="etiqueta" style="justify-content:center">Reconhece-se?</div>
       <h2 style="margin-top:20px">Voltar a prender o cabelo sem medo de o ver mais fino.</h2>
     </div>
     <div class="cartoes">
@@ -388,7 +393,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22p
 <!-- 3. O QUE O TRATAMENTO TRABALHA -->
 <section class="escura" id="frentes">
   <div class="wrap">
-    <div class="etiqueta reveal">O que o tratamento trabalha</div>
     <h2 class="reveal d1" style="margin-top:22px;max-width:820px">Tratamos a causa no couro cabeludo, e <em>não só o que se vê</em> ao espelho.</h2>
     <p class="reveal d2" style="margin-top:22px;max-width:640px;color:#CFC6B8">Um cabelo mais forte nasce de um couro cabeludo em equilíbrio. Por isso, o tratamento trabalha quatro frentes, conforme o seu caso:</p>
     <div class="frentes">
@@ -405,7 +409,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22p
 <!-- 4. COMO É O TRATAMENTO -->
 <section class="tratamento bg2" id="tratamento">
   <div class="wrap" style="max-width:860px">
-    <div class="etiqueta reveal">Como é o tratamento</div>
     <h2 class="reveal d1" style="margin-top:22px">Um plano feito para si, e <em>ajustado todas as semanas.</em></h2>
     <div class="passos" id="passos">
       <div class="linha"><i id="linhaFill"></i></div>
@@ -423,7 +426,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22p
   <div class="wrap grelha">
     <div class="fotos reveal-scale"><img src="https://www.hairclinicspa.pt/photos/Hair-Clinic-20.jpg" alt="Espaço da Hair Clinic em Vila Nova de Gaia" loading="lazy" width="1365" height="2048"></div>
     <div class="texto reveal-right">
-      <div class="etiqueta">O que é a Hair Clinic</div>
       <h2 style="margin:20px 0 26px">A Hair Clinic não é um cabeleireiro, <em>nem apenas um spa.</em></h2>
       <div class="contraste">
         <div><b>Cabeleireiro</b><span>Trabalha-se o cabelo que se vê.</span></div>
@@ -454,7 +456,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22p
   <div class="wrap grelha">
     <div class="foto reveal-scale"><img src="https://www.hairclinicspa.pt/photos/Hair-Clinic-5.jpg" alt="Equipamento de diagnóstico da Hair Clinic" loading="lazy" width="2048" height="1365"></div>
     <div class="reveal-right">
-      <div class="etiqueta">O primeiro passo</div>
       <h2>Tudo começa com <em>45 minutos</em> só para si.</h2>
       <p>Antes do tratamento, a Fábia vê o seu couro cabeludo e a raiz de perto com uma microcâmara, e as imagens aparecem no ecrã à sua frente. Conversam sobre o que a preocupa, percebem o que lá está, e sai com um plano claro e com as imagens no telemóvel, para mostrar a quem quiser, incluindo ao seu médico.</p>
       <p class="destaque">Se concluirmos que não precisa de tratamento, dizemos-lhe.</p>
@@ -466,7 +467,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22p
 <!-- 9. FAQ -->
 <section class="bg2" id="perguntas">
   <div class="narrow">
-    <div class="etiqueta reveal">Perguntas frequentes</div>
     <h2 class="reveal d1" style="margin-top:22px">O que costuma <em>perguntar.</em></h2>
     <div class="faq-lista reveal">
       <div class="faq-item"><button type="button" aria-expanded="false"><span>Quanto custa?</span><i class="mais"></i></button><div class="resp"><p>O diagnóstico capilar custa 25 €. Na marcação paga um sinal de 10 €, por MB Way ou transferência, e os restantes 15 € no dia. Se avançar para o tratamento, os 25 € são descontados. O valor do tratamento só se sabe depois do diagnóstico, porque depende do que encontrarmos.</p></div></div>
@@ -497,16 +497,15 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22p
       <p>R. Grémio da Prosperidade, 60<br>4400-172 Vila Nova de Gaia</p>
     </div>
     <div>
-      <p>Segunda a sexta, das 9h às 19h<br>Sábado, das 9h às 14h<br>WhatsApp: <a href="https://wa.me/351910520813" target="_blank" rel="noopener noreferrer">+351 910 520 813</a></p>
+      <p>Segunda a sexta, das 9h às 19h<br>Sábado, das 9h às 14h<br>WhatsApp: <a href="https://wa.me/351910520813" target="_blank" rel="noopener noreferrer">+351 910 520 813</a><br><small class="chamada">Chamada para a rede móvel nacional</small></p>
       <p class="lema" style="margin-top:18px">O cuidado começa na raiz.</p>
     </div>
     <div class="legal">
-      <p>Fábia Oliveira · NIF 211753807<br>Largo da Costa Madalena 95, 4405-714 Vila Nova de Gaia, Portugal<br><a href="/privacidade">Política de Privacidade</a></p>
+      <p>Fábia Oliveira · NIF 211753807<br>Largo da Costa Madalena 95, 4405-714 Vila Nova de Gaia, Portugal<br><a href="/privacidade">Política de Privacidade</a> · <a href="/diagnostico/cookies">Política de Cookies</a> · <a href="#" data-cookies>Definições de cookies</a><br><a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer">Livro de Reclamações</a></p>
     </div>
   </div>
 </footer>
 
-<div class="barra" id="barra"><button class="btn" data-abrir>Quero marcar o meu diagnóstico</button></div>
 
 <!-- Pop-up do formulário GHL -->
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitulo">
@@ -515,10 +514,8 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22p
     <button class="fechar" data-fechar aria-label="Fechar"></button>
     <div class="etiqueta">Hair Clinic</div>
     <h3 id="mTitulo">Marque o seu diagnóstico capilar</h3>
-    <p class="intro">Deixe o seu contacto e falamos consigo pelo WhatsApp para combinar o dia.</p>
     <iframe id="formFrame" data-form-id="k0Y93c8IJVm1H4n6gBbN" title="Pedido de diagnóstico capilar" data-src="https://api.leadconnectorhq.com/widget/form/k0Y93c8IJVm1H4n6gBbN" scrolling="no"></iframe>
     <p class="nota">Ao enviar, aceita que a Hair Clinic a contacte por telefone ou WhatsApp sobre esta marcação. Pode ler a nossa <a href="/privacidade" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>.</p>
-    <a class="wa" href="https://wa.me/351910520813?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20o%20meu%20diagn%C3%B3stico%20capilar." target="_blank" rel="noopener noreferrer">Prefere falar já pelo WhatsApp?</a>
   </div>
 </div>
 
@@ -564,13 +561,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22p
   document.addEventListener('scroll',passosFn,{passive:true,capture:true});window.addEventListener('resize',passosFn);passosFn();
 
   /* Barra fixa no telemóvel: aparece depois do herói, some junto ao CTA final e com o pop-up aberto */
-  var barra=$('#barra'),heroi=$('#inicio'),final=$('#marcar');
-  function barraFn(){
-    var hr=heroi.getBoundingClientRect(),fr=final.getBoundingClientRect(),vh=window.innerHeight;
-    var ver=hr.bottom<vh*.2&&fr.top>vh*.75&&!$('#modal').classList.contains('aberto');
-    barra.classList.toggle('ver',ver);
-  }
-  document.addEventListener('scroll',barraFn,{passive:true,capture:true});window.addEventListener('resize',barraFn);barraFn();
 
   /* Pop-up do formulário (com UTMs da página passadas ao formulário) */
   var modal=$('#modal'),frame=$('#formFrame'),ultimo=null;
@@ -589,11 +579,11 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22p
     modal.classList.add('aberto');
     document.documentElement.style.overflow='hidden';
     requestAnimationFrame(function(){requestAnimationFrame(function(){modal.classList.add('visivel')})});
-    barraFn();
+    
   }
   function fechar(){
     modal.classList.remove('visivel');
-    setTimeout(function(){modal.classList.remove('aberto');document.documentElement.style.overflow='';barraFn();if(ultimo&&ultimo.focus)ultimo.focus()},350);
+    setTimeout(function(){modal.classList.remove('aberto');document.documentElement.style.overflow='';if(ultimo&&ultimo.focus)ultimo.focus()},350);
   }
   $$('[data-abrir]').forEach(function(b){b.addEventListener('click',abrir)});
   $$('[data-fechar]').forEach(function(b){b.addEventListener('click',fechar)});
@@ -603,5 +593,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--linha);padding-top:22p
   /* O iframe do GHL ajusta a altura via form_embed.js */
 })();
 </script>
+<script src="/diagnostico/consent.js" defer></script>
 </body>
 </html>

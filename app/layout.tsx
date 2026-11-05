@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
@@ -138,6 +139,7 @@ export default function RootLayout({
           Saltar para o conteúdo
         </a>
         {children}
+        <Script src="/diagnostico/consent.js" strategy="afterInteractive" />
       </body>
     </html>
   );

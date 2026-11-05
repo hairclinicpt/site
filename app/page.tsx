@@ -1590,7 +1590,7 @@ export default function Home() {
               external
               icon="✆"
               label="Telefone / WhatsApp"
-              value={PHONE_DISPLAY}
+              value={`${PHONE_DISPLAY} · Chamada para a rede móvel nacional`}
             />
             <ContactItem
               href={PRICELIST_URL}
@@ -1669,6 +1669,8 @@ export default function Home() {
                   {PHONE_DISPLAY}
                 </a>
                 <br />
+                <span className="text-[12px] text-white/50">Chamada para a rede móvel nacional</span>
+                <br />
                 <br />
                 Seg–Sex: 9h–19h
                 <br />
@@ -1690,13 +1692,36 @@ export default function Home() {
                 className="underline underline-offset-4 transition-colors hover:text-white"
               >
                 Política de Privacidade
+              </a> ·{" "}
+              <a
+                href="/diagnostico/cookies"
+                className="underline underline-offset-4 transition-colors hover:text-white"
+              >
+                Política de Cookies
+              </a>{" "}
+              ·{" "}
+              <a
+                href="https://www.livroreclamacoes.pt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4 transition-colors hover:text-white"
+              >
+                Livro de Reclamações
+              </a>{" "}
+              ·{" "}
+              <a
+                href="#"
+                data-cookies
+                className="underline underline-offset-4 transition-colors hover:text-white"
+              >
+                Definições de cookies
               </a>
             </p>
             <nav aria-label="Redes sociais" className="flex gap-4">
               {[
                 { label: "IG", title: "Instagram", href: "https://instagram.com/hairclinicporto" },
                 { label: "f", title: "Facebook", href: "https://facebook.com/hairclinicporto" },
-                { label: "W", title: "WhatsApp", href: "https://wa.me/351910000000" },
+                { label: "W", title: "WhatsApp", href: WHATSAPP_URL },
               ].map((s) => (
                 <a
                   key={s.title}
