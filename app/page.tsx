@@ -1678,9 +1678,19 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex flex-col items-start justify-between gap-5 md:flex-row md:items-center">
-            <p className="text-[11px] text-white/25">
+            <p className="text-[12px] leading-[1.8] text-white/50">
               © {new Date().getFullYear()} Hair Clinic by Fábia Oliveira ·
               Todos os direitos reservados
+              <br />
+              Fábia Oliveira · NIF 211753807 · Largo da Costa Madalena 95,
+              4405-714 Vila Nova de Gaia, Portugal
+              <br />
+              <a
+                href="/privacidade"
+                className="underline underline-offset-4 transition-colors hover:text-white"
+              >
+                Política de Privacidade
+              </a>
             </p>
             <nav aria-label="Redes sociais" className="flex gap-4">
               {[

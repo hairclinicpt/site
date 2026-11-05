@@ -1,6 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: "/privacidade", destination: "/diagnostico/privacidade.html" },
+        { source: "/diagnostico", destination: "/diagnostico/lp.html" },
+        { source: "/diagnostico/", destination: "/diagnostico/lp.html" },
+        { source: "/diagnostico/obrigado", destination: "/diagnostico/obrigado.html" },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
   images: {
     // AVIF primeiro (≈20% menor que WebP), com WebP para browsers sem suporte.
     formats: ["image/avif", "image/webp"],
