@@ -4,7 +4,7 @@
    Eventos enviados ao dataLayer: hc_view_lp, hc_abrir_formulario, hc_lead (parâmetro lp = mulher|homem). */
 (function(){
 var HC_GTM_ID='';
-var HC_PIXEL_ID='';
+var HC_PIXEL_ID='1644036223761736';
 var d=document,w=window,ok=false;
 w.dataLayer=w.dataLayer||[];
 function dl(e,p){var o={event:e};for(var k in p)o[k]=p[k];w.dataLayer.push(o)}
@@ -24,7 +24,7 @@ function iniciar(){
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(w,d,'script','https://connect.facebook.net/en_US/fbevents.js');
     w.fbq('init',HC_PIXEL_ID);w.fbq('track','PageView');
   }
-  if(obrigado)evento('hc_lead','Lead',false);else evento('hc_view_lp','ViewContent',false);
+  if(obrigado){var k='hc_lead_ok';try{if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,'1')}catch(e){}evento('hc_lead','Lead',false)}else evento('hc_view_lp','ViewContent',false);
 }
 if(!obrigado){
   var feito=false;
