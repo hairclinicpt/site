@@ -207,7 +207,9 @@ footer a{text-decoration:none;border-bottom:1px solid var(--dourado)}
   .marca{font-size:19px}
   .caixa{padding:40px 22px 24px}
   .modal{padding:10px;align-items:flex-end}
-  .caixa{max-height:calc(100dvh - 20px)}
+  /* iOS: altura fixa e sem transform/rolagem inercial no pop-up, para o iframe do GHL não saltar ao carregar nem desalinhar o cursor */
+  .caixa{height:calc(100dvh - 20px);max-height:none;transform:none;transition:opacity .3s;-webkit-overflow-scrolling:auto;overscroll-behavior:contain}
+  .modal .veu{-webkit-backdrop-filter:none;backdrop-filter:none}
   .faq-item .resp p{padding-right:6px}
 }
 @media (max-width:480px){
@@ -558,7 +560,7 @@ footer .chamada{font-size:16px;color:#574E48}
   /* Barra fixa no telemóvel: aparece depois do herói, some junto ao CTA final e com o pop-up aberto */
 
   /* Pop-up do formulário (com UTMs da página passadas ao formulário) */
-  var modal=$('#modal'),frame=$('#formFrame'),ultimo=null;
+  var modal=$('#modal'),frame=$('#formFrame'),ultimo=null,travaY=0;
   function urlForm(){
     var u=frame.getAttribute('data-src'),q=window.location.search.replace(/^\?/,'');
     var p=[];
@@ -573,13 +575,15 @@ footer .chamada{font-size:16px;color:#574E48}
     ultimo=document.activeElement;
     if(!frame.getAttribute('src'))frame.setAttribute('src',urlForm());
     modal.classList.add('aberto');
+    travaY=window.pageYOffset||document.documentElement.scrollTop;
     document.documentElement.style.overflow='hidden';
+    document.body.style.cssText+=';position:fixed;top:-'+travaY+'px;left:0;right:0;width:100%';
     requestAnimationFrame(function(){requestAnimationFrame(function(){modal.classList.add('visivel')})});
     
   }
   function fechar(){
     modal.classList.remove('visivel');
-    setTimeout(function(){modal.classList.remove('aberto');document.documentElement.style.overflow='';if(ultimo&&ultimo.focus)ultimo.focus()},350);
+    setTimeout(function(){modal.classList.remove('aberto');document.documentElement.style.overflow='';document.body.style.position='';document.body.style.top='';document.body.style.left='';document.body.style.right='';document.body.style.width='';window.scrollTo({top:travaY,left:0,behavior:'instant'});if(ultimo&&ultimo.focus)ultimo.focus()},350);
   }
   $$('[data-abrir]').forEach(function(b){b.addEventListener('click',abrir)});
   $$('[data-fechar]').forEach(function(b){b.addEventListener('click',fechar)});
