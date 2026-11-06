@@ -258,6 +258,16 @@ footer a{border-bottom:0;text-decoration:underline;text-underline-offset:4px;tex
 @media (max-width:900px){
   .heroi .foto{height:min(96vw,440px);-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 32%);mask-image:linear-gradient(180deg,transparent 0%,#000 32%)}
 }
+/* Dobra 1 da LP de homem: foto 150, com máscara mais curta para a cabeça não desvanecer */
+@media (min-width:901px){
+  .heroi .foto{width:49%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 8%,#000 20%),linear-gradient(180deg,#000 86%,transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 8%,#000 20%),linear-gradient(180deg,#000 86%,transparent 100%)}
+  .heroi .foto img{object-position:50% 34%}
+}
+@media (max-width:900px){
+  .heroi .foto{height:min(112vw,460px);-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 12%);mask-image:linear-gradient(180deg,transparent 0%,#000 12%)}
+  .heroi .foto img{object-position:50% 18%}
+}
 .topo{background:var(--creme);box-shadow:0 1px 0 var(--linha)}
 .heroi h1{font-size:clamp(38px,4.6vw,62px)}
 
@@ -355,14 +365,14 @@ footer .chamada{font-size:16px;color:#574E48}
 <section class="heroi" id="inicio">
   <div class="texto">
     <div class="etiqueta reveal">Tricologia para homem em Vila Nova de Gaia</div>
-    <h1 class="reveal d1">Queda de cabelo? Perceba o que se passa no seu <em>couro cabeludo</em> antes de decidir o que fazer.</h1>
-    <p class="sub reveal d2">Na Hair Clinic, a tricologista Fábia Oliveira analisa o seu couro cabeludo e o fio com uma microcâmara, num diagnóstico de 45 minutos. Sai com imagens, uma explicação clara do que se passa e um plano para o seu caso, e se não houver tratamento que o ajude, dizemos-lhe.</p>
+    <h1 class="reveal d1">Tenha um cabelo mais forte, um couro cabeludo mais saudável e a <em>confiança de volta.</em></h1>
+    <p class="sub reveal d2">Na Hair Clinic, tratamos o couro cabeludo e o fio com um plano personalizado para os seus desafios, seja queda de cabelo, entradas, comichão ou oleosidade. O primeiro passo é um diagnóstico capilar de 45 minutos com microcâmara, e, se não precisar de tratamento, dizemos-lhe.</p>
     <div class="acao reveal d3">
       <button class="btn" data-abrir>Quero marcar o meu diagnóstico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
     </div>
   </div>
   <div class="foto">
-    <img src="https://www.hairclinicspa.pt/photos/Hair-Clinic-100.jpg" alt="Fábia Oliveira a observar o couro cabeludo de uma cliente na Hair Clinic, em Vila Nova de Gaia" fetchpriority="high" width="1365" height="2048">
+    <img src="https://www.hairclinicspa.pt/photos/Hair-Clinic-150.jpg" alt="Homem a fazer um tratamento capilar no lavatório da Hair Clinic, em Vila Nova de Gaia, com uma toalha sobre os olhos" fetchpriority="high" width="1365" height="2048">
   </div>
 </section>
 
