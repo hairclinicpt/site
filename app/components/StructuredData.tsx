@@ -1,6 +1,6 @@
 import { faqItems } from "../lib/faq";
 
-const SITE_URL = "https://hairclinic.pt";
+const SITE_URL = "https://www.hairclinicspa.pt";
 const WHATSAPP_URL = "https://wa.link/86w4c5";
 const PRICELIST_URL = "https://hairclinic-pt.my.canva.site/";
 

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://hairclinic.pt";
+const SITE_URL = "https://www.hairclinicspa.pt";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

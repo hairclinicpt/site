@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         { source: "/privacidade", destination: "/diagnostico/privacidade.html" },
+        { source: "/bio", destination: "/bio.html" },
+        { source: "/bio/", destination: "/bio.html" },
         { source: "/diagnostico", destination: "/diagnostico/lp.html" },
         { source: "/diagnostico/", destination: "/diagnostico/lp.html" },
         { source: "/diagnostico-homem", destination: "/diagnostico/lp-homem.html" },

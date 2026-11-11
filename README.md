@@ -44,7 +44,7 @@ Alojado na [Vercel](https://vercel.com). O deploy é automático a cada push par
 cada pull request gera um preview. Não são necessárias variáveis de ambiente —
 o site é totalmente estático (todas as rotas são pré-renderizadas).
 
-O domínio de produção (`https://hairclinic.pt`) está definido em `SITE_URL` em
+O domínio de produção (`https://www.hairclinicspa.pt`) está definido em `SITE_URL` em
 [`app/layout.tsx`](app/layout.tsx), [`app/robots.ts`](app/robots.ts) e
 [`app/sitemap.ts`](app/sitemap.ts).
 

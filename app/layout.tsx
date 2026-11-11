@@ -18,7 +18,7 @@ const sans = Jost({
   display: "swap",
 });
 
-const SITE_URL = "https://hairclinic.pt";
+const SITE_URL = "https://www.hairclinicspa.pt";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
