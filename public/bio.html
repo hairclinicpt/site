@@ -14,58 +14,169 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
 <style>
 
-.bio{--fundo:#FDFAF5;--fundo2:#ECEFE4;--brilho:rgba(92,110,80,.16);--cartao:#FFFFFF;--linha:#EDE5D8;--titulo:#3F4D36;--texto:#3D3530;--suave:#7A6E62;--acento:#5C6E50;--acento2:#3F4D36;--acento-texto:#FFFFFF;--botao:#FFFFFF;--botao-texto:#3F4D36;--botao-linha:#EDE5D8;--ic-fundo:#EEF1E9;--ic-cor:#4A5A40;--veu:rgba(63,77,54,.30);--raio:16px;--textura:0.05;--capa-pos:50% 38%;--capa-fundo:#ECEFE4;--sombra:0 18px 40px -22px rgba(0,0,0,.45)}
+.bio{--fundo:#FDFAF5;--fundo2:#ECEFE4;--brilho:rgba(92,110,80,.16);--cartao:#FFFFFF;--linha:#EDE5D8;--titulo:#3F4D36;--texto:#3D3530;--suave:#7A6E62;--acento:#5C6E50;--acento2:#3F4D36;--acento-texto:#FFFFFF;--botao:#FFFFFF;--botao-texto:#3F4D36;--botao-linha:#EDE5D8;--ic-fundo:#EEF1E9;--ic-cor:#4A5A40;--veu:rgba(63,77,54,.30);--raio:16px;--textura:0.05;--capa-pos:50% 38%;--capa-fundo:#ECEFE4;--sombra:0 18px 40px -22px rgba(0,0,0,.45);--detalhe:#4A5A40;--ft:"Cormorant Garamond",Georgia,serif}
 .bio,.bio *{box-sizing:border-box}
 .bio{position:relative;min-height:100vh;margin:0;font-family:"Jost",system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.5;color:var(--texto);background:radial-gradient(130% 55% at 50% -8%,var(--fundo2) 0%,transparent 62%),radial-gradient(90% 55% at 105% 105%,var(--brilho) 0%,transparent 68%),var(--fundo);overflow:hidden;-webkit-font-smoothing:antialiased;text-align:center}
 .bio::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:var(--textura);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
-.bio p,.bio h1,.bio h2,.bio ul{margin:0;padding:0}
-.bio a{text-decoration:none;color:inherit;font-family:inherit;letter-spacing:normal;text-transform:none}
+.bio p,.bio h1,.bio h2,.bio h3,.bio ul,.bio dl,.bio dd{margin:0;padding:0}
+.bio a{text-decoration:none;color:inherit;font-family:inherit;letter-spacing:normal;text-transform:none;box-shadow:none}
 .bio svg{display:block}
+.bio img{max-width:100%;border:0;border-radius:0;box-shadow:none}
 .bio-in{position:relative;width:100%;max-width:460px;margin:0 auto;padding:14px 16px 36px}
-.bio-capa{position:relative;height:310px;border-radius:calc(var(--raio) + 8px);overflow:hidden;background:var(--capa-fundo)}
-.bio-capa img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:var(--capa-pos);border:0;border-radius:0}
+.bio .oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Capa */
+.bio-capa{position:relative;height:300px;border-radius:calc(var(--raio) + 8px);overflow:hidden;background:var(--capa-fundo)}
+.bio-capa img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:var(--capa-pos)}
 .bio-capa.recorte img{object-fit:contain;object-position:50% 100%}
 .bio-capa::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 48%,var(--veu) 100%)}
-.bio-selo{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:max-content;max-width:88%;margin:-46px auto 0;padding:16px 26px;background:var(--cartao);border:1px solid var(--linha);border-radius:calc(var(--raio) + 4px);box-shadow:var(--sombra)}
-.bio-selo img{display:block;height:auto;max-width:100%;border:0}
-.bio-selo .nome-selo{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.75rem;line-height:1.1;color:var(--titulo);letter-spacing:normal}
-.bio h1{margin-top:18px;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.9rem;line-height:1.15;color:var(--titulo);letter-spacing:normal}
-.bio .oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Cabecalho: selo (cartao sobre a capa) */
+.cab-selo .bio-marca{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:fit-content;max-width:88%;margin:-40px auto 0;padding:14px 22px;background:var(--cartao);border:1px solid var(--linha);border-radius:calc(var(--raio) + 4px);box-shadow:var(--sombra)}
+.cab-selo .bio-marca img{display:block;height:auto}
+/* Cabecalho: livre (sem cartao) */
+.cab-livre .bio-marca{display:flex;justify-content:center;margin:14px auto 0}
+.cab-livre.sem-capa .bio-marca{margin-top:34px}
+.cab-livre .bio-marca img{display:block;height:auto}
+/* Cabecalho: faixa (banda escura com o logo em claro) */
+.cab-faixa .bio-linha{margin-top:18px}
+.cab-faixa .bio-faixa{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:46px 24px 40px;border-radius:calc(var(--raio) + 8px);background:var(--detalhe);color:#fff}
+.cab-faixa .bio-faixa img{display:block;height:auto;filter:brightness(0) invert(1)}
+.cab-faixa .bio-faixa .faixa-tag{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+/* Cabecalho: nome sobre a foto */
+.cab-sobre .bio-capa{height:380px}
+.cab-sobre .bio-capa::after{background:linear-gradient(180deg,rgba(0,0,0,0) 40%,var(--veu) 100%)}
+.cab-sobre .bio-sobre{position:absolute;z-index:2;left:0;right:0;bottom:24px;padding:0 20px;color:#fff}
+.cab-sobre .bio-sobre .nome{font-family:var(--ft);font-weight:600;font-size:2.3rem;line-height:1.05;letter-spacing:normal;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.cab-sobre .bio-sobre .tag{display:inline-block;margin-top:10px;padding:6px 14px;border-radius:99px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+
+.bio .nome-sob{margin-top:16px;font-size:1.85rem}
+.bio .nome-txt{font-family:var(--ft);font-weight:600;font-size:1.9rem;line-height:1.1;color:var(--titulo);letter-spacing:normal}
+.cab-livre .nome-txt{font-size:2.5rem}
 .bio-linha{margin-top:14px;font-size:.95rem;line-height:1.5;color:var(--suave)}
-.bio-linha b{display:block;font-weight:600;color:var(--titulo);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px}
+.bio-linha .forte{display:block;color:var(--titulo);font-size:1.02rem;font-weight:500}
+.bio-linha .local{display:block;margin-top:6px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--suave)}
+.bio-assin{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;color:var(--titulo)}
+.bio-assin::before,.bio-assin::after{content:"";width:34px;height:1px;background:var(--detalhe);opacity:.5}
+.bio-assin span{font-family:var(--ft);font-style:italic;font-size:1.45rem;line-height:1}
+.bio-assin small{font-size:1.05rem;color:var(--suave)}
+
+/* Redes */
 .bio-redes{display:flex;justify-content:center;gap:12px;margin-top:18px}
-.bio-redes a{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--cartao);border:1px solid var(--linha);color:var(--titulo);transition:transform .2s,border-color .2s}
-.bio-redes a:hover,.bio-redes a:focus-visible{transform:translateY(-2px);border-color:var(--acento);outline:none}
-.bio-orn{display:flex;align-items:center;gap:12px;margin:26px 4px 18px;color:var(--suave);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+.bio-redes a{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--cartao);border:1px solid var(--linha);color:var(--titulo)!important;transition:transform .2s,border-color .2s}
+.bio-redes a:hover,.bio-redes a:focus-visible{transform:translateY(-2px);border-color:var(--detalhe);outline:none}
+.bio-redes.fim{margin-top:26px}
+.bio-redes.fim::before{content:attr(data-rotulo);display:block;width:100%;margin-bottom:-2px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--suave)}
+.bio-redes.fim{flex-wrap:wrap}
+
+.bio-orn{display:flex;align-items:center;gap:12px;margin:26px 4px 16px;color:var(--suave);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
 .bio-orn::before,.bio-orn::after{content:"";flex:1;height:1px;background:var(--linha)}
+
+/* Botoes: cartao (icone em caixa) */
 .bio-nav{display:flex;flex-direction:column;gap:12px}
-.bio-b{position:relative;display:flex;align-items:center;gap:14px;min-height:64px;padding:11px 16px 11px 11px;border-radius:var(--raio);background:var(--botao);color:var(--botao-texto)!important;border:1px solid var(--botao-linha);box-shadow:0 10px 24px -18px rgba(0,0,0,.45);font-weight:500;font-size:1rem;line-height:1.3;transition:transform .2s,box-shadow .2s,border-color .2s}
+.bio-b{position:relative;display:flex;align-items:center;gap:14px;min-height:62px;padding:10px 16px 10px 10px;border-radius:var(--raio);background:var(--botao);color:var(--botao-texto)!important;border:1px solid var(--botao-linha);box-shadow:0 10px 24px -18px rgba(0,0,0,.45);font-weight:500;font-size:1rem;line-height:1.3;transition:transform .2s,box-shadow .2s,border-color .2s}
 .bio-b:hover,.bio-b:focus-visible{transform:translateY(-2px);box-shadow:0 16px 30px -18px rgba(0,0,0,.55);outline:none}
 .bio-b .ic{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:calc(var(--raio) - 4px);background:var(--ic-fundo);color:var(--ic-cor)}
 .bio-b .tx{flex:1;text-align:left}
-.bio-b .sv{flex:none;opacity:.55}
+.bio-b .sv{flex:none;opacity:.5}
 .bio-b.principal{background:linear-gradient(120deg,var(--acento) 0%,var(--acento2) 100%);color:var(--acento-texto)!important;border-color:transparent;font-weight:600;box-shadow:0 16px 30px -16px var(--acento)}
 .bio-b.principal .ic{background:rgba(255,255,255,.16);color:var(--acento-texto)}
-.bio-b.principal::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0) 55%)}
+/* Botoes: pilula (texto ao centro, icone pequeno) */
+.bt-pilula .bio-nav{gap:10px}
+.bt-pilula .bio-b{justify-content:center;min-height:58px;padding:10px 58px;border-radius:999px;font-weight:500}
+.bt-pilula .bio-b .ic{position:absolute;left:8px;width:42px;height:42px;border-radius:50%}
+.bt-pilula .bio-b .tx{flex:0 1 auto;min-width:0;text-align:center}
+.bt-pilula .bio-b .sv{display:none}
+
+/* Lojas (cartao com foto, como nas LPs) */
+.bio-lojas{display:flex;flex-direction:column;gap:14px;margin-top:4px}
+.loja{position:relative;overflow:hidden;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;padding:22px 20px 18px;border-radius:var(--raio);color:#fff;text-align:left;background:#2b1430;isolation:isolate}
+.loja::after{content:"";position:absolute;inset:0;z-index:-2;background:var(--foto) center/cover no-repeat}
+.loja::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(43,20,48,.10) 0%,rgba(43,20,48,.55) 42%,rgba(43,20,48,.92) 82%),radial-gradient(80% 60% at 100% 0%,rgba(163,52,143,.30),transparent 70%)}
+.loja h3{font-family:var(--ft);font-weight:600;font-size:1.75rem;line-height:1.1;color:#fff;margin-bottom:12px}
+.loja dl{display:grid;gap:9px;font-size:.88rem}
+.loja dt{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#e3c7ea;margin-bottom:1px}
+.loja dd{line-height:1.45;color:rgba(255,255,255,.92)}
+.loja dd a{color:#fff!important;font-weight:600;border-bottom:1px solid rgba(255,255,255,.6)}
+.loja .acoes{display:flex;gap:8px;margin-top:16px}
+.loja .acoes a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:8px 6px;border-radius:12px;font-size:.8rem;white-space:nowrap;font-weight:600;line-height:1.2}
+.loja .acoes .ir{background:#fff;color:var(--acento)!important}
+.loja .acoes .av{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.42);color:#fff!important}
+
+/* Informacoes */
 .bio-info{margin-top:22px;padding:4px 18px;background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);text-align:left}
 .bio-info .ln{display:flex;gap:12px;align-items:flex-start;padding:14px 0;font-size:.9rem;line-height:1.5;color:var(--texto)}
 .bio-info .ln+.ln{border-top:1px solid var(--linha)}
-.bio-info .ln svg{flex:none;margin-top:2px;color:var(--acento)}
-.bio-info .ln span b{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acento);font-weight:600;margin-bottom:2px}
+.bio-info .ln svg{flex:none;margin-top:2px;color:var(--detalhe)}
+.bio-info .ln span b{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--detalhe);font-weight:600;margin-bottom:2px}
+
+/* Avaliacao no Google: varios desenhos */
+.bio-av{margin-top:26px}
+.bio-av .estrelas{display:flex;justify-content:center;gap:4px;color:var(--estrela,#E8B04B)}
+.bio-av .estrelas svg{fill:currentColor;stroke:none}
+.bio-av h2{font-family:var(--ft);font-weight:600;line-height:1.15;color:var(--titulo)}
+.bio-av p{font-size:.92rem;line-height:1.55;color:var(--suave)}
+.bio-av .bt{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 22px;border-radius:var(--raio);font-weight:600;font-size:.95rem;line-height:1.2}
+/* cartao */
+.av-cartao{padding:24px 20px 22px;background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);box-shadow:0 14px 30px -24px rgba(0,0,0,.4)}
+.av-cartao h2{margin-top:12px;font-size:1.5rem}
+.av-cartao p{margin-top:8px}
+.av-cartao .bt{width:100%;margin-top:18px;background:transparent;border:1.5px solid var(--detalhe);color:var(--detalhe)!important}
+/* linha (como um botao, com estrelas) */
+.av-linha a{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--cartao);border:1px dashed var(--detalhe);border-radius:var(--raio);text-align:left;color:var(--titulo)!important}
+.av-linha .selo-est{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--ic-fundo);color:#E8B04B}
+.av-linha .selo-est svg{fill:currentColor}
+.av-linha .sv{flex:none;opacity:.5}
+.av-linha .tx{flex:1}
+.av-linha .tx b{display:block;font-weight:600;font-size:1rem;color:var(--titulo)}
+.av-linha .tx span{display:block;margin-top:2px;font-size:.84rem;color:var(--suave);line-height:1.4}
+/* faixa (banda de cor da marca) */
+.av-faixa{padding:28px 22px 26px;border-radius:calc(var(--raio) + 6px);background:var(--detalhe);color:#fff}
+.av-faixa .estrelas{--estrela:#F3D27A}
+.av-faixa h2{margin-top:12px;font-size:1.55rem;color:#fff}
+.av-faixa p{margin-top:8px;color:rgba(255,255,255,.82)}
+.av-faixa .bt{margin-top:18px;background:#fff;color:var(--detalhe)!important}
+/* destaque (moldura fina, estrelas grandes) */
+.av-destaque{position:relative;padding:30px 22px 26px;border:1px solid var(--detalhe);border-radius:calc(var(--raio) + 4px)}
+.av-destaque::before{content:"";position:absolute;inset:6px;border:1px solid var(--linha);border-radius:var(--raio);pointer-events:none}
+.av-destaque h2{margin-top:14px;font-size:1.65rem}
+.av-destaque p{margin-top:8px}
+.av-destaque .bt{position:relative;margin-top:18px;background:var(--detalhe);color:var(--acento-texto)!important}
+/* estrelas (sem caixa, link sublinhado) */
+.av-estrelas{padding:6px 10px 0}
+.av-estrelas h2{margin-top:14px;font-size:1.4rem}
+.av-estrelas p{margin-top:6px}
+.av-estrelas .ln{display:inline-block;margin-top:14px;font-weight:600;font-size:.95rem;color:var(--titulo)!important;border-bottom:2px solid var(--detalhe);padding-bottom:3px}
+/* contorno (texto a esquerda, botao a direita) */
+.av-contorno{display:flex;align-items:center;gap:14px;padding:18px;border:1.5px solid var(--detalhe);border-radius:var(--raio);text-align:left}
+.av-contorno .tx{flex:1}
+.av-contorno h2{font-family:inherit;font-weight:600;font-size:1rem;line-height:1.35}
+.av-contorno p{margin-top:3px;font-size:.84rem}
+.av-contorno .bt{flex:none;min-height:46px;padding:10px 16px;background:var(--detalhe);color:#fff!important}
+/* citacao (aspas grandes, tom de testemunho) */
+.av-citacao{position:relative;padding:34px 22px 24px;background:var(--cartao);border-radius:calc(var(--raio) + 6px);border:1px solid var(--linha)}
+.av-citacao::before{content:"\201C";position:absolute;top:-6px;left:50%;transform:translateX(-50%);font-family:var(--ft);font-size:5.2rem;line-height:1;color:var(--detalhe)}
+.av-citacao h2{margin-top:6px;font-size:1.5rem;font-style:italic}
+.av-citacao p{margin-top:8px}
+.av-citacao .estrelas{margin-top:14px}
+.av-citacao .bt{width:100%;margin-top:16px;background:linear-gradient(120deg,var(--acento),var(--acento2));color:var(--acento-texto)!important}
+/* lojas: so o titulo, os links ficam em cada loja */
+.av-lojas{margin:-4px 0 16px;padding:0 6px}
+.av-lojas h2{font-size:1.25rem}
+.av-lojas p{margin-top:4px}
+
 .bio-pe{margin-top:30px;font-size:.75rem;line-height:1.6;color:var(--suave)}
-.bio-pe a{text-decoration:underline;color:var(--suave)}
+.bio-pe a{text-decoration:underline;color:var(--suave)!important}
 .bio-pe details{margin-top:8px}
 .bio-pe summary{cursor:pointer}
 .bio-pe details p{margin-top:8px;text-align:left}
-@media (min-width:700px){.bio-in{padding-top:28px}.bio-capa{height:340px}}
+@media (min-width:700px){.bio-in{padding-top:28px}.bio-capa{height:330px}.cab-sobre .bio-capa{height:420px}}
 </style>
-<div class="bio">
+<div class="bio cab-livre bt-pilula">
  <div class="bio-in">
-  <div class="bio-capa"><img src="https://material.oprotocolooficial.com/hair-clinic/capa.jpg" alt="Tratamento capilar na Hair Clinic" width="960" height="1440" fetchpriority="high"></div>
-  <div class="bio-selo"><img src="https://material.oprotocolooficial.com/hair-clinic/logo.png" alt="Hair Clinic" width="150" height="108"></div>
-  <h1 class="oculto">Hair Clinic</h1>
-  <p class="bio-linha"><b>by Fábia Oliveira</b>Clínica capilar e spa · Vila Nova de Gaia</p>
-  <div class="bio-redes"><a href="https://material.oprotocolooficial.com/r/hair-clinic/instagram" data-botao="instagram" rel="noopener" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></svg></a><a href="https://material.oprotocolooficial.com/r/hair-clinic/facebook" data-botao="facebook" rel="noopener" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.5 3.5h-2.2a4 4 0 0 0-4 4v2.7H7v3.6h2.3v7.7h3.8v-7.7h2.6l.6-3.6h-3.2V8.1c0-.6.4-1 1-1h1.4z"/></svg></a></div>
+  <div class="bio-capa"><img src="https://material.oprotocolooficial.com/hair-clinic/capa.jpg" alt="Tratamento capilar na Hair Clinic" width="960" height="1440" fetchpriority="high"></div><div class="bio-marca"><h1 class="oculto">Hair Clinic</h1><img src="https://material.oprotocolooficial.com/hair-clinic/logo.png" alt="Hair Clinic" width="250" height="179"></div>
+  <p class="bio-linha"><span class="local">Clínica capilar e spa · Vila Nova de Gaia</span></p>
+  <p class="bio-assin"><span><small>por</small> Fábia Oliveira</span></p>
   <div class="bio-orn">Diagnóstico e marcações</div>
   <nav class="bio-nav">
     <a class="bio-b" href="https://material.oprotocolooficial.com/r/hair-clinic/site" data-botao="site" rel="noopener"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.7 3.9 5.9 3.9 9.5s-1.3 6.8-3.9 9.5c-2.6-2.7-3.9-5.9-3.9-9.5s1.3-6.8 3.9-9.5z"/></svg></span><span class="tx">O nosso site</span><span class="sv"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5"/></svg></span></a>
@@ -73,7 +184,9 @@
     <a class="bio-b" href="https://material.oprotocolooficial.com/r/hair-clinic/precos" data-botao="precos" rel="noopener"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L2.5 12.5v-10h10l8.1 8.1a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.4"/></svg></span><span class="tx">Preços e serviços</span><span class="sv"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5"/></svg></span></a>
     <a class="bio-b" href="https://material.oprotocolooficial.com/r/hair-clinic/localizacao" data-botao="localizacao" rel="noopener"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 10c0 5.5-7.5 11.5-7.5 11.5S4.5 15.5 4.5 10a7.5 7.5 0 0 1 15 0z"/><circle cx="12" cy="10" r="2.7"/></svg></span><span class="tx">Localização</span><span class="sv"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5"/></svg></span></a>
   </nav>
-  <div class="bio-info"><div class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 10c0 5.5-7.5 11.5-7.5 11.5S4.5 15.5 4.5 10a7.5 7.5 0 0 1 15 0z"/><circle cx="12" cy="10" r="2.7"/></svg><span><b>Morada</b>Rua Grémio da Prosperidade 60, 4400-172 Vila Nova de Gaia</span></div><div class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/></svg><span><b>Horário</b>Segunda a sexta, 9h às 19h<br>Sábado, 9h às 14h</span></div></div>
+  <div class="bio-info"><div class="ln"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/></svg><span><b>Horário</b>Segunda a sexta, 9h às 19h<br>Sábado, 9h às 14h</span></div></div>
+  <section class="bio-av av-faixa"><div class="estrelas" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></div><h2>A sua opinião faz parte do nosso cuidado</h2><p>Se já fez um tratamento na Hair Clinic, partilhe a sua experiência no Google.</p><a class="bt" href="https://material.oprotocolooficial.com/r/hair-clinic/avaliacao-google" data-botao="avaliacao-google" rel="noopener">Escrever avaliação</a></section>
+  <div class="bio-redes fim" data-rotulo="Acompanhe-nos"><a href="https://material.oprotocolooficial.com/r/hair-clinic/instagram" data-botao="instagram" rel="noopener" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></svg></a><a href="https://material.oprotocolooficial.com/r/hair-clinic/facebook" data-botao="facebook" rel="noopener" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.5 3.5h-2.2a4 4 0 0 0-4 4v2.7H7v3.6h2.3v7.7h3.8v-7.7h2.6l.6-3.6h-3.2V8.1c0-.6.4-1 1-1h1.4z"/></svg></a></div>
   <div class="bio-pe">
    <p>Hair Clinic by Fábia Oliveira<br>Rua Grémio da Prosperidade 60, 4400-172 Vila Nova de Gaia</p>
    <p style="margin-top:8px"><a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener">Livro de Reclamações</a></p>
