@@ -1,3 +1,5 @@
+/* Aviso de cookies da Hair Clinic. Desde 12/11/2026 é só informativo: a medição (pixel.js) carrega logo ao abrir.
+   O botão Entendi fecha o aviso e guarda a escolha, para não voltar a aparecer. */
 (function(){
 var K='hc-cookies',d=document;
 function get(){try{return localStorage.getItem(K)}catch(e){return null}}
@@ -7,7 +9,7 @@ var css=d.createElement('style');css.textContent='#hc-ck{position:fixed;left:12p
 d.head.appendChild(css);
 function fechar(){var e=d.getElementById('hc-ck');if(e)e.remove()}
 function mostrar(){fechar();var e=d.createElement('div');e.id='hc-ck';e.setAttribute('role','dialog');e.setAttribute('aria-label','Cookies');
-e.innerHTML='<p>Usamos cookies para medir os anúncios e melhorar o site. Pode aceitar ou recusar, e a recusa não afeta o pedido de diagnóstico. <a href="/diagnostico/cookies">Política de Cookies</a></p><div class="b"><button type="button" data-v="recusar">Recusar</button><button type="button" data-v="aceitar" class="r">Aceitar</button></div>';
+e.innerHTML='<p>Este site usa cookies de medição, como o pixel da Meta, para perceber como chegou até nós e melhorar os anúncios. Saiba mais na <a href="/diagnostico/cookies">Política de Cookies</a>.</p><div class="b"><button type="button" data-v="aceitar" class="r">Entendi</button></div>';
 e.addEventListener('click',function(ev){var v=ev.target.getAttribute&&ev.target.getAttribute('data-v');if(v){set(v);fechar()}});d.body.appendChild(e)}
 d.addEventListener('click',function(ev){var t=ev.target.closest&&ev.target.closest('#hc-cookies-abrir,[data-cookies]');if(t){ev.preventDefault();mostrar()}});
 if(!window.hcConsent){if(d.readyState==='loading')d.addEventListener('DOMContentLoaded',mostrar);else mostrar()}

@@ -140,6 +140,7 @@ export default function RootLayout({
         </a>
         {children}
         <Script src="/diagnostico/consent.js" strategy="afterInteractive" />
+        <Script src="/diagnostico/pixel.js" strategy="afterInteractive" />
       </body>
     </html>
   );
