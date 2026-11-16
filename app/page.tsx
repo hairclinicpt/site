@@ -1684,8 +1684,8 @@ export default function Home() {
               © {new Date().getFullYear()} Hair Clinic by Fábia Oliveira ·
               Todos os direitos reservados
               <br />
-              Fábia Oliveira · NIF 211753807 · Largo da Costa Madalena 95,
-              4405-714 Vila Nova de Gaia, Portugal
+              R. Grémio da Prosperidade, 60,
+              4400-172 Vila Nova de Gaia
               <br />
               <a
                 href="/privacidade"
