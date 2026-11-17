@@ -128,10 +128,19 @@ export default function RootLayout({
       lang="pt-PT"
       className={`${serif.variable} ${sans.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});try{if(localStorage.getItem('hc-cookies')==='aceitar')gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'})}catch(e){}document.addEventListener('hc-consent',function(e){if(e.detail==='aceitar')gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'})});(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PWXQ9HM3');" }} />
+      </head>
       <body
         suppressHydrationWarning
         className="min-h-full flex flex-col bg-[color:var(--color-cream)] text-stone-800"
       >
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html:
+              '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWXQ9HM3" height="0" width="0" style="display:none;visibility:hidden"></iframe>',
+          }}
+        />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-[color:var(--color-ink)] focus:px-4 focus:py-2 focus:text-[color:var(--color-cream)] focus:text-sm focus:tracking-wider"
